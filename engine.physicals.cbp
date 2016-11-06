@@ -88,6 +88,8 @@
 		<Unit filename="plane.h" />
 		<Unit filename="sphere.cpp" />
 		<Unit filename="sphere.h" />
+		<Unit filename="trimesh.cpp" />
+		<Unit filename="trimesh.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
