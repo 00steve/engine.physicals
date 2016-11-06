@@ -3,6 +3,8 @@
 
 #include "box.h"
 #include "plane.h"
+#include "sphere.h"
+#include "cylinder.h"
 
 /*  To use this exported function of dll, include this header
  *  in your project.
@@ -23,6 +25,8 @@ extern "C"
 
     DLL_EXPORT Box* BuildBox();
     DLL_EXPORT Plane* BuildPlane();
+    DLL_EXPORT Sphere* BuildSphere();
+    DLL_EXPORT Cylinder* BuildCylinder();
 
 #ifdef __cplusplus
 }

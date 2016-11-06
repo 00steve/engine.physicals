@@ -1,7 +1,8 @@
-#ifndef PLANE_H
-#define PLANE_H
+#ifndef CYLINDER_H
+#define CYLINDER_H
 
 #include <GL/gl.h>
+#include <GL/glu.h>
 #define dSINGLE
 #include <ode/ode.h>
 
@@ -9,24 +10,20 @@
 #include <engine/physics/physical_single_body.h>
 #include <engine/physics/physics_world.h>
 
-
-class Plane : public PhysicalSingleBody{
+class Cylinder : public PhysicalSingleBody{
 private:
+    double length;
+    double radius;
     static string geometry;
-    double3 normal;
-    double offset;
 
 protected:
     void OnSetSettings();
     bool HandleMessage(NodeMessage message);
 
 public:
-    void Update();
     void Draw();
 
 };
 
 
-
-
-#endif
+#endif // CYLINDER_H

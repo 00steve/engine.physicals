@@ -2,17 +2,9 @@
 
 string Plane::geometry = "plane";
 
-Plane::Plane(){
-}
-
-Plane::~Plane(){
-}
-
 void Plane::OnSetSettings(){
-    cout << "ON SET PLANE SETTINGS\n";
     VarMap settings = Settings();
     if(settings.IsSet("normal")){
-
         List<double> norm = settings.get<List<double> >("normal");
         if(norm.GetCount() == 3){
             normal = double3(norm[0],norm[1],norm[2]);
@@ -23,28 +15,21 @@ void Plane::OnSetSettings(){
     } else {
         normal = double3(0,1,0);
     }
-
     if(settings.IsSet("offset")){
         offset = settings.get<double>("offset");
     } else {
         offset = 0;
     }
-
-    cout << "  > normal(" << normal.x << "," << normal.y << "," << normal.z << ")\n";
 }
 
 
 bool Plane::HandleMessage(NodeMessage message){
-    cout << "Plane::HandleMessage - " << message.code << endl;
     switch(message.code){
         case MESSAGE_REGISTER_PHYSICS_OFFER: {
             VarMap *physics = new VarMap();
             physics->Add<string>(&geometry,"plane.geometry");
-            //physics->Add<List<double> >(&lengths,"box.lengths");
-            //physics->Add<double>(&density,"box.density");
             physics->Add<double3>(&normal,"plane.normal");
             physics->Add<double>(&offset,"plane.offset");
-            //cout << "position : " << position.x << "," << position.y << "," << position.z << endl;
             CreateAndSendMessage(message.sender,MESSAGE_REGISTER_PHYSICS_REQUEST,(void*)physics);
             return true;
         }
@@ -65,7 +50,7 @@ void Plane::Update(){
 
 void Plane::Draw(){
 
-        /*
+
         glPushMatrix();
         glTranslated(0,offset,0);
 
@@ -86,7 +71,7 @@ void Plane::Draw(){
 			glVertex3d(-10,0,10);
 		glEnd();
         glPopMatrix();
-        */
+
 
 }
 

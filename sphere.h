@@ -1,7 +1,10 @@
-#ifndef PLANE_H
-#define PLANE_H
+#ifndef SPHERE_H
+#define SPHERE_H
+
 
 #include <GL/gl.h>
+#include <GL/glu.h>
+
 #define dSINGLE
 #include <ode/ode.h>
 
@@ -10,23 +13,26 @@
 #include <engine/physics/physics_world.h>
 
 
-class Plane : public PhysicalSingleBody{
+
+class Sphere : public PhysicalSingleBody{
 private:
+
     static string geometry;
-    double3 normal;
-    double offset;
+    double radius;
 
 protected:
-    void OnSetSettings();
-    bool HandleMessage(NodeMessage message);
+
+    virtual void OnSetSettings();
+    virtual bool HandleMessage(NodeMessage message);
 
 public:
-    void Update();
+
+    virtual void Update();
     void Draw();
 
 };
 
 
 
+#endif // Sphere
 
-#endif

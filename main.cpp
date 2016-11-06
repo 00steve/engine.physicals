@@ -7,9 +7,14 @@ extern "C" {
     DLL_EXPORT Box* BuildBox() {
         return new Box();
     }
-
     DLL_EXPORT Plane* BuildPlane() {
         return new Plane();
+    }
+    DLL_EXPORT Sphere* BuildSphere() {
+        return new Sphere();
+    }
+    DLL_EXPORT Cylinder* BuildCylinder() {
+        return new Cylinder();
     }
 }
 

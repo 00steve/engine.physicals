@@ -13,21 +13,14 @@
 
 class Box : public PhysicalSingleBody{
 private:
-
-    static List<double> lengths;
-    static double density;
+    double3 lengths;
     static string geometry;
 
 protected:
-
-    virtual bool HandleMessage(NodeMessage message);
+    virtual void OnSetSettings();
+    bool HandleMessage(NodeMessage message);
 
 public:
-
-    Box();
-    ~Box();
-
-    virtual void Update();
     void Draw();
 
 };
