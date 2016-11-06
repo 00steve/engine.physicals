@@ -16,6 +16,9 @@ extern "C" {
     DLL_EXPORT Cylinder* BuildCylinder() {
         return new Cylinder();
     }
+    DLL_EXPORT Capsule* BuildCapsule() {
+        return new Capsule();
+    }
 }
 
 extern "C" DLL_EXPORT BOOL APIENTRY DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)

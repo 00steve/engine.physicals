@@ -5,6 +5,7 @@
 #include "plane.h"
 #include "sphere.h"
 #include "cylinder.h"
+#include "capsule.h"
 
 /*  To use this exported function of dll, include this header
  *  in your project.
@@ -27,6 +28,7 @@ extern "C"
     DLL_EXPORT Plane* BuildPlane();
     DLL_EXPORT Sphere* BuildSphere();
     DLL_EXPORT Cylinder* BuildCylinder();
+    DLL_EXPORT Capsule* BuildCapsule();
 
 #ifdef __cplusplus
 }

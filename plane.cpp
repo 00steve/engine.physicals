@@ -35,7 +35,6 @@ bool Plane::HandleMessage(NodeMessage message){
         }
 
         case MESSAGE_REGISTER_PHYSICS_FINISHED: {
-            cout << "successfully created physics object\n";
             PhysicsGroup *pGroup = (PhysicsGroup*) message.data;
             geom = pGroup->geom["plane"];
             return true;

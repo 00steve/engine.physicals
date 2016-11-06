@@ -15,7 +15,6 @@ void Sphere::OnSetSettings(){
 
 
 bool Sphere::HandleMessage(NodeMessage message){
-    cout << "Box::HandleMessage - " << message.code << endl;
     switch(message.code){
     case MESSAGE_REGISTER_PHYSICS_OFFER: {
         VarMap *physics = new VarMap();
@@ -24,13 +23,11 @@ bool Sphere::HandleMessage(NodeMessage message){
         physics->Add<double>(&density,"sphere.density");
         physics->Add<double3>(&position,"sphere.position");
         physics->Add<double3>(&velocity,"sphere.velocity");
-        cout << "position : " << position.x << "," << position.y << "," << position.z << endl;
         CreateAndSendMessage(message.sender,MESSAGE_REGISTER_PHYSICS_REQUEST,(void*)physics);
         return true;
         }
 
     case MESSAGE_REGISTER_PHYSICS_FINISHED: {
-        cout << "successfully created physics::sphere\n";
         PhysicsGroup *pGroup = (PhysicsGroup*) message.data;
         body = pGroup->body["sphere"];
         geom = pGroup->geom["sphere"];

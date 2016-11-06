@@ -30,7 +30,6 @@ bool Cylinder::HandleMessage(NodeMessage message){
             physics->Add<double>(&radius,"cylinder.radius");
             physics->Add<double>(&density,"cylinder.density");
             physics->Add<double3>(&position,"cylinder.position");
-            cout << "position : " << position.x << "," << position.y << "," << position.z << endl;
             CreateAndSendMessage(message.sender,MESSAGE_REGISTER_PHYSICS_REQUEST,(void*)physics);
             return true;
         }
@@ -49,9 +48,20 @@ void Cylinder::Draw(){
     glPushMatrix();
         glMultMatrixf(gl_matrix);
         GLUquadricObj *quadric = gluNewQuadric();
-        glColor3f(0,1,0);
-        gluQuadricDrawStyle(quadric, GLU_LINE );
+        gluQuadricDrawStyle(quadric, GLU_SMOOTH );
+        glTranslated(0,0,-length*.5);
+        glColor3f(0,0,1);
         gluCylinder( quadric , radius , radius,length, 40 ,1 );
+        glColor3f(0,1,0);
+        glRotated(180,1,0,0);
+        //glTranslated(0,length,0);
+        gluDisk(quadric,0,radius,40,1);
+
+        glTranslated(0,0,-length);
+        glRotated(180,1,0,0);
+        glColor3f(1,0,0);
+        gluDisk(quadric,0,radius,40,1);
+
         gluDeleteQuadric(quadric);
 		glEnd();
     glPopMatrix();
