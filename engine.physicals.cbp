@@ -63,6 +63,8 @@
 		<Unit filename="C:/Program Files (x86)/CodeBlocks/MinGW/include/engine/core/stringutil.h" />
 		<Unit filename="C:/Program Files (x86)/CodeBlocks/MinGW/include/engine/core/varmap.cpp" />
 		<Unit filename="C:/Program Files (x86)/CodeBlocks/MinGW/include/engine/core/varmap.h" />
+		<Unit filename="C:/Program Files (x86)/CodeBlocks/MinGW/include/engine/mechanism/marker.cpp" />
+		<Unit filename="C:/Program Files (x86)/CodeBlocks/MinGW/include/engine/mechanism/marker.h" />
 		<Unit filename="C:/Program Files (x86)/CodeBlocks/MinGW/include/engine/physics/collision.cpp" />
 		<Unit filename="C:/Program Files (x86)/CodeBlocks/MinGW/include/engine/physics/collision.h" />
 		<Unit filename="C:/Program Files (x86)/CodeBlocks/MinGW/include/engine/physics/impact.cpp" />
@@ -78,6 +80,8 @@
 		<Unit filename="C:/Program Files (x86)/CodeBlocks/MinGW/include/engine/physics/physicsgroup.h" />
 		<Unit filename="box.cpp" />
 		<Unit filename="box.h" />
+		<Unit filename="boxSpawner.cpp" />
+		<Unit filename="boxSpawner.h" />
 		<Unit filename="capsule.cpp" />
 		<Unit filename="capsule.h" />
 		<Unit filename="cylinder.cpp" />

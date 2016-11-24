@@ -19,6 +19,9 @@ extern "C" {
     DLL_EXPORT Capsule* BuildCapsule() {
         return new Capsule();
     }
+    DLL_EXPORT BoxSpawner* BuildBoxspawner(){
+        return new BoxSpawner();
+    }
 }
 
 extern "C" DLL_EXPORT BOOL APIENTRY DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)
