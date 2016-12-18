@@ -9,17 +9,15 @@
 
 #include <engine/core/varmap.h>
 #include <engine/physics/physical_single_body.h>
-#include <engine/physics/physics_world.h>
 
 class Capsule : public PhysicalSingleBody{
 private:
     double length;
     double radius;
-    static string geometry;
 
 protected:
-    void OnSetSettings();
-    bool HandleMessage(NodeMessage message);
+    virtual void OnSetSettings();
+    virtual void OnSetWorld();
 
 public:
     void Draw();

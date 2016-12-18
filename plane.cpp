@@ -1,7 +1,5 @@
 #include "plane.h"
 
-string Plane::geometry = "plane";
-
 void Plane::OnSetSettings(){
     VarMap settings = Settings();
     if(settings.IsSet("normal")){
@@ -22,34 +20,11 @@ void Plane::OnSetSettings(){
     }
 }
 
-
-bool Plane::HandleMessage(NodeMessage message){
-    switch(message.code){
-        case MESSAGE_REGISTER_PHYSICS_OFFER: {
-            cout << "ADD PLANE\n";
-            VarMap *physics = new VarMap();
-            physics->Add<string>(&geometry,"plane.geometry");
-            physics->Add<double3>(&normal,"plane.normal");
-            physics->Add<double>(&offset,"plane.offset");
-            CreateAndSendMessage(message.sender,MESSAGE_REGISTER_PHYSICS_REQUEST,(void*)physics);
-            return true;
-        }
-
-        case MESSAGE_REGISTER_PHYSICS_FINISHED: {
-            PhysicsGroup *pGroup = (PhysicsGroup*) message.data;
-            geom = pGroup->geom["plane"];
-            return true;
-        }
-    }
-    return PhysicalSingleBody::HandleMessage(message);
-}
-
-void Plane::Update(){
-    Physical::Update();
+void Plane::OnSetWorld(){
+    World()->NewPlane(geom,normal,offset,this);
 }
 
 void Plane::Draw(){
-
 
         glPushMatrix();
         glTranslated(0,offset,0);
@@ -71,7 +46,5 @@ void Plane::Draw(){
 			glVertex3d(-10,0,10);
 		glEnd();
         glPopMatrix();
-
-
 }
 

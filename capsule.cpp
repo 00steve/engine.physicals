@@ -1,8 +1,5 @@
 #include "capsule.h"
 
-string Capsule::geometry = "capsule";
-
-
 void Capsule::OnSetSettings(){
     VarMap settings = Settings();
     if(settings.IsSet("length")){
@@ -20,28 +17,9 @@ void Capsule::OnSetSettings(){
     PhysicalSingleBody::OnSetSettings();
 }
 
-
-bool Capsule::HandleMessage(NodeMessage message){
-    switch(message.code){
-    case MESSAGE_REGISTER_PHYSICS_OFFER: {
-            VarMap *physics = new VarMap();
-            physics->Add<string>(&geometry,"capsule.geometry");
-            physics->Add<double>(&length,"capsule.length");
-            physics->Add<double>(&radius,"capsule.radius");
-            physics->Add<double>(&density,"capsule.density");
-            physics->Add<double3>(&position,"capsule.position");
-            CreateAndSendMessage(message.sender,MESSAGE_REGISTER_PHYSICS_REQUEST,(void*)physics);
-            return true;
-        }
-
-    case MESSAGE_REGISTER_PHYSICS_FINISHED: {
-            PhysicsGroup *pGroup = (PhysicsGroup*) message.data;
-            body = pGroup->body["capsule"];
-            geom = pGroup->geom["capsule"];
-            return true;
-        }
-    }
-    return PhysicalSingleBody::HandleMessage(message);
+void Capsule::OnSetWorld(){
+    World()->NewCapsule(body,geom,radius,length,density,this);
+    Position(position);
 }
 
 void Capsule::Draw(){

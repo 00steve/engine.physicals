@@ -10,24 +10,17 @@
 
 #include <engine/core/varmap.h>
 #include <engine/physics/physical_single_body.h>
-#include <engine/physics/physics_world.h>
-
 
 
 class Sphere : public PhysicalSingleBody{
 private:
-
-    static string geometry;
     double radius;
 
 protected:
-
     virtual void OnSetSettings();
-    virtual bool HandleMessage(NodeMessage message);
+    virtual void OnSetWorld();
 
 public:
-
-    virtual void Update();
     void Draw();
 
 };

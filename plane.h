@@ -7,21 +7,18 @@
 
 #include <engine/core/varmap.h>
 #include <engine/physics/physical_single_body.h>
-#include <engine/physics/physics_world.h>
 
 
 class Plane : public PhysicalSingleBody{
 private:
-    static string geometry;
     double3 normal;
     double offset;
 
 protected:
-    void OnSetSettings();
-    bool HandleMessage(NodeMessage message);
+    virtual void OnSetSettings();
+    virtual void OnSetWorld();
 
 public:
-    void Update();
     void Draw();
 
 };
