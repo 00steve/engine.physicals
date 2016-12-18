@@ -1,6 +1,6 @@
 #include "sphere.h"
 
-string Sphere::geometry = "sphere";
+//string Sphere::geometry = "sphere";
 
 
 void Sphere::OnSetSettings(){
@@ -14,6 +14,12 @@ void Sphere::OnSetSettings(){
 }
 
 
+void Sphere::OnSetWorld(){
+    World()->NewSphere(body,geom,radius,density,this);
+    Position(position);
+}
+
+/*
 bool Sphere::HandleMessage(NodeMessage message){
     switch(message.code){
     case MESSAGE_REGISTER_PHYSICS_OFFER: {
@@ -37,11 +43,7 @@ bool Sphere::HandleMessage(NodeMessage message){
         }
     }
     return PhysicalSingleBody::HandleMessage(message);
-}
-
-void Sphere::Update(){
-    PhysicalSingleBody::Update();
-}
+}*/
 
 void Sphere::Draw(){
     glPushMatrix();

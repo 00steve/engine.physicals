@@ -1,6 +1,6 @@
 #include "cylinder.h"
 
-string Cylinder::geometry = "cylinder";
+//string Cylinder::geometry = "cylinder";
 
 
 void Cylinder::OnSetSettings(){
@@ -20,7 +20,12 @@ void Cylinder::OnSetSettings(){
     PhysicalSingleBody::OnSetSettings();
 }
 
+void Cylinder::OnSetWorld(){
+    World()->NewCylinder(body,geom,radius,length,density,this);
+    Position(position);
+}
 
+/*
 bool Cylinder::HandleMessage(NodeMessage message){
     switch(message.code){
     case MESSAGE_REGISTER_PHYSICS_OFFER: {
@@ -42,7 +47,7 @@ bool Cylinder::HandleMessage(NodeMessage message){
         }
     }
     return PhysicalSingleBody::HandleMessage(message);
-}
+}*/
 
 void Cylinder::Draw(){
     glPushMatrix();

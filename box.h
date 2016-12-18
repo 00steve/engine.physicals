@@ -7,18 +7,15 @@
 
 #include <engine/core/varmap.h>
 #include <engine/physics/physical_single_body.h>
-#include <engine/physics/physics_world.h>
-
 
 
 class Box : public PhysicalSingleBody{
 private:
-    double3 lengths;
-    static string geometry;
+    double3 dimensions;
 
 protected:
     virtual void OnSetSettings();
-    bool HandleMessage(NodeMessage message);
+    virtual void OnSetWorld();
 
 public:
     void Draw();

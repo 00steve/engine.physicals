@@ -1,6 +1,6 @@
 #include "plane.h"
 
-string Plane::geometry = "plane";
+//string Plane::geometry = "plane";
 
 void Plane::OnSetSettings(){
     VarMap settings = Settings();
@@ -22,7 +22,11 @@ void Plane::OnSetSettings(){
     }
 }
 
+void Plane::OnSetWorld(){
+    World()->NewPlane(geom,normal,offset,this);
+}
 
+/*
 bool Plane::HandleMessage(NodeMessage message){
     switch(message.code){
         case MESSAGE_REGISTER_PHYSICS_OFFER: {
@@ -42,11 +46,7 @@ bool Plane::HandleMessage(NodeMessage message){
         }
     }
     return PhysicalSingleBody::HandleMessage(message);
-}
-
-void Plane::Update(){
-    Physical::Update();
-}
+}*/
 
 void Plane::Draw(){
 

@@ -1,7 +1,5 @@
 #include "capsule.h"
 
-string Capsule::geometry = "capsule";
-
 
 void Capsule::OnSetSettings(){
     VarMap settings = Settings();
@@ -20,9 +18,15 @@ void Capsule::OnSetSettings(){
     PhysicalSingleBody::OnSetSettings();
 }
 
+void Capsule::OnSetWorld(){
+    World()->NewCapsule(body,geom,radius,length,density,this);
+    Position(position);
+}
 
+/*
 bool Capsule::HandleMessage(NodeMessage message){
     switch(message.code){
+
     case MESSAGE_REGISTER_PHYSICS_OFFER: {
             VarMap *physics = new VarMap();
             physics->Add<string>(&geometry,"capsule.geometry");
@@ -42,7 +46,7 @@ bool Capsule::HandleMessage(NodeMessage message){
         }
     }
     return PhysicalSingleBody::HandleMessage(message);
-}
+}*/
 
 void Capsule::Draw(){
     glPushMatrix();
