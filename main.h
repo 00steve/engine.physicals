@@ -6,6 +6,7 @@
 #include "sphere.h"
 #include "cylinder.h"
 #include "capsule.h"
+#include "cable.h"
 
 /*  To use this exported function of dll, include this header
  *  in your project.
@@ -29,6 +30,7 @@ extern "C"
     DLL_EXPORT Sphere* BuildSphere();
     DLL_EXPORT Cylinder* BuildCylinder();
     DLL_EXPORT Capsule* BuildCapsule();
+    DLL_EXPORT Cable* BuildCable();
 
 #ifdef __cplusplus
 }

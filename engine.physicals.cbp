@@ -15,8 +15,9 @@
 				<Option createStaticLib="1" />
 				<Compiler>
 					<Add option="-Wall" />
-					<Add option="-DBUILD_DLL" />
+					<Add option="-std=c++0x" />
 					<Add option="-g" />
+					<Add option="-DBUILD_DLL" />
 				</Compiler>
 				<Linker>
 					<Add library="user32" />
@@ -32,6 +33,7 @@
 				<Compiler>
 					<Add option="-O2" />
 					<Add option="-Wall" />
+					<Add option="-std=c++0x" />
 					<Add option="-DBUILD_DLL" />
 				</Compiler>
 				<Linker>
@@ -41,7 +43,7 @@
 			</Target>
 		</Build>
 		<Compiler>
-			<Add option="-std=c++11" />
+			<Add option="-std=c++0x" />
 		</Compiler>
 		<Linker>
 			<Add library="opengl32" />
@@ -78,6 +80,7 @@
 		<Unit filename="C:/Program Files (x86)/CodeBlocks/MinGW/include/engine/physics/physicsgroup.h" />
 		<Unit filename="box.cpp" />
 		<Unit filename="box.h" />
+		<Unit filename="cable.cpp" />
 		<Unit filename="capsule.cpp" />
 		<Unit filename="capsule.h" />
 		<Unit filename="cylinder.cpp" />

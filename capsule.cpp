@@ -61,14 +61,14 @@ void Capsule::Draw(){
 
 			glTranslated(0,0,length*.5-radius);
 			glColor3f(1,0,0);
-			gluSphere(quadric,radius,30,30);
+			gluSphere(quadric,radius,20,20);
 
             glTranslated(0,0,-length+radius*2);
 			glColor3f(0,0,1);
-			gluCylinder(quadric,radius,radius,length-radius*2,30,1);
+			gluCylinder(quadric,radius,radius,length-radius*2,20,1);
 
             glColor3f(0,1,0);
-			gluSphere(quadric,radius,30,30);
+			gluSphere(quadric,radius,20,20);
 
     glPopMatrix();
 }

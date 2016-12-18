@@ -26,6 +26,7 @@ void Plane::OnSetSettings(){
 bool Plane::HandleMessage(NodeMessage message){
     switch(message.code){
         case MESSAGE_REGISTER_PHYSICS_OFFER: {
+            cout << "ADD PLANE\n";
             VarMap *physics = new VarMap();
             physics->Add<string>(&geometry,"plane.geometry");
             physics->Add<double3>(&normal,"plane.normal");

@@ -23,6 +23,8 @@ void Box::OnSetSettings(){
 bool Box::HandleMessage(NodeMessage message){
     switch(message.code){
     case MESSAGE_REGISTER_PHYSICS_OFFER: {
+
+
             VarMap *physics = new VarMap();
             physics->Add<string>(&geometry,"box.geometry");
             physics->Add<double3>(&lengths,"box.lengths");
