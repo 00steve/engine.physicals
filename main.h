@@ -1,6 +1,11 @@
 #ifndef __MAIN_H__
 #define __MAIN_H__
 
+
+
+#define dSINGLE
+#include <ode/ode.h>
+
 #include "box.h"
 #include "plane.h"
 #include "sphere.h"

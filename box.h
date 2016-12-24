@@ -2,9 +2,6 @@
 #define Box_H
 
 #include <GL/gl.h>
-#define dSINGLE
-#include <ode/ode.h>
-
 #include <engine/core/varmap.h>
 #include <engine/physics/physical_single_body.h>
 
